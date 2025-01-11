@@ -11,6 +11,12 @@ namespace PrimeiraAPI.Infra
 
         public DbSet<Project> Project { get; set; }
 
+        public DbSet<Deliveries> Deliveries { get; set; }
+
+        public DbSet<FinancialLaunch> FinancialLaunch { get; set; }
+
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
           => optionsBuilder.UseNpgsql(

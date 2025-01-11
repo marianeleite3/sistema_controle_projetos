@@ -50,6 +50,8 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IProjectRepository, ProjectRepository>();
+builder.Services.AddTransient<IDeliveriesRepository, DeliveriesRepository>();
+builder.Services.AddTransient<IFinancialLaunchRepository, FinancialLaunchRepository>();
 
 var key = Encoding.ASCII.GetBytes(PrimeiraAPI.Key.Secret);
 
