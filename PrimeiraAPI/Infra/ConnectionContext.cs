@@ -19,6 +19,8 @@ namespace PrimeiraAPI.Infra
 
         public DbSet<HourlyCostHistory> HourlyCostHistory { get; set; }
 
+        public DbSet<UserProject> UserProject { get; set; }
+
 
 
 
