@@ -16,7 +16,7 @@ namespace PrimeiraAPI.Model
 
         public double CostValue { get; set; }
 
-        public FinancialLaunch(string LaunchMonth, string UserID, string ProjectId , int Hours
+        public FinancialLaunch(string LaunchMonth, string UserID, string ProjectId , int Hours,
            double CostValue) { 
             this.LaunchMonth = LaunchMonth;
             this.UserID = UserID;

@@ -22,7 +22,7 @@ namespace PrimeiraAPI.Controllers
         public IActionResult Add(FinancialLaunchViewModel financialLaunchView)
         {
             var financiallaunch = new FinancialLaunch(
-                 financialLaunchView.LaunchMonth, financialLaunchView.UserID, financialLaunchView.ProjectId, financialLaunchView.Hours
+                 financialLaunchView.LaunchMonth, financialLaunchView.UserID, financialLaunchView.ProjectId, financialLaunchView.Hours,
                  financialLaunchView.CostValue);
             return Ok();
 

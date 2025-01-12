@@ -15,15 +15,20 @@ namespace PrimeiraAPI.Infra
 
         public DbSet<FinancialLaunch> FinancialLaunch { get; set; }
 
+        public DbSet<ForecastProcess> ForecastProcess { get; set; }
+
+        public DbSet<HourlyCostHistory> HourlyCostHistory { get; set; }
+
 
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
           => optionsBuilder.UseNpgsql(
-              "Server=localhost;" +
-              "Port=5432;Database=employee_sample;" +
-              "User Id=postgres;" +
-              "Password=postgres;");
+            "Host=dpg-cu1gq5jtq21c73bi9st0-a.oregon-postgres.render.com;" +
+            "Port=5432;" +
+            "Database=employee_sample;" +
+            "Username=postgres_sist_controle_projetos;" +
+            "Password=9AzWOGyIaSk7br76jLWr6xVK61H3sjc9;");
 
     }
 }

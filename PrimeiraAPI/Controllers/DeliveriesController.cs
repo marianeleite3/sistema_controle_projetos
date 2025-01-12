@@ -7,7 +7,7 @@ using PrimeiraAPI.ViewModel;
 namespace PrimeiraAPI.Controllers
 {
     [ApiController]
-    [Route("/api/v1/project")]
+    [Route("/api/v1/deliveries")]
     public class DeliveriesController: Controller
     {
         private readonly IDeliveriesRepository _deliveriesRepository;

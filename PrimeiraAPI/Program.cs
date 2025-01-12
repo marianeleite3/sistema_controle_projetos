@@ -52,6 +52,8 @@ builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IProjectRepository, ProjectRepository>();
 builder.Services.AddTransient<IDeliveriesRepository, DeliveriesRepository>();
 builder.Services.AddTransient<IFinancialLaunchRepository, FinancialLaunchRepository>();
+builder.Services.AddTransient<IForecastProcessRepository, ForecastProcessRepository>();
+builder.Services.AddTransient<IHourlyCostHistoryRepository, HourlyCostHistoryRepository>();
 
 var key = Encoding.ASCII.GetBytes(PrimeiraAPI.Key.Secret);
 
