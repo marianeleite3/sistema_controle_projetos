@@ -56,6 +56,8 @@ builder.Services.AddTransient<IForecastProcessRepository, ForecastProcessReposit
 builder.Services.AddTransient<IHourlyCostHistoryRepository, HourlyCostHistoryRepository>();
 builder.Services.AddTransient<IUserProjectRepository, UserProjectRepository>();
 
+
+
 var key = Encoding.ASCII.GetBytes(PrimeiraAPI.Key.Secret);
 
 builder.Services.AddAuthentication(x =>

@@ -7,7 +7,7 @@ namespace PrimeiraAPI.Model
     public class ForecastProcess
     {
         [Key]
-        public int IDSerial { get; set; }
+        public int IdSerial { get; set; }
 
         public string ProjectId { get; set; }
 

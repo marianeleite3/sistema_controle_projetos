@@ -4,12 +4,13 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace PrimeiraAPI.Model
 {
-    [Table("Project")]
+    [Table("Deliveries")]
     public class Deliveries
     {
         [Key]
         public int DeliveryId { get; set; }
 
+        [ForeignKey("Project")]
         public string ProjectCode { get; set; }
 
 

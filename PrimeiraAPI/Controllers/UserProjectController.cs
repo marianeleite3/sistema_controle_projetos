@@ -13,9 +13,9 @@ namespace PrimeiraAPI.Controllers
         private readonly IUserProjectRepository _userProjectRepository;
 
         // Construtor que injeta o repositório
-        public UserProjectController(IUserProjectRepository _userProjectRepository)
+        public UserProjectController(IUserProjectRepository userProjectRepository)
         {
-            _userProjectRepository = _userProjectRepository ?? throw new ArgumentException(nameof(_userProjectRepository));
+            _userProjectRepository = userProjectRepository ?? throw new ArgumentException(nameof(userProjectRepository));
         }
 
         // Adicionar um novo UserProject

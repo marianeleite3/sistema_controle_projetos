@@ -13,9 +13,9 @@ namespace PrimeiraAPI.Controllers
         private readonly ForecastProcessRepository _forecastProcessRepository;
 
         // Construtor que injeta o repositório
-        public ForecastProcessController(ForecastProcessRepository _forecastProcessRepository)
+        public ForecastProcessController(ForecastProcessRepository forecastProcessRepository)
         {
-            _forecastProcessRepository = _forecastProcessRepository ?? throw new ArgumentException(nameof(_forecastProcessRepository));
+            _forecastProcessRepository = forecastProcessRepository ?? throw new ArgumentException(nameof(forecastProcessRepository));
         }
 
         // Adicionar um novo ForecastProcess
@@ -53,6 +53,30 @@ namespace PrimeiraAPI.Controllers
             // Obtendo todos os ForecastProcesses
             var forecastProcesses = _forecastProcessRepository.Get();
             return Ok(forecastProcesses);
+        }
+
+        [HttpGet("{idSerial}")]
+        public IActionResult GetForecastProcessByCode(int idSerial)
+        {
+            var financiallaunch = _forecastProcessRepository.GetForecastProcessByCode(idSerial);
+            if (financiallaunch == null)
+            {
+                return NotFound();
+            }
+            return Ok(financiallaunch);
+        }
+
+        [HttpDelete("{idSerial}")]
+        public IActionResult Delete(int idSerial)
+        {
+            var financiallaunch = _forecastProcessRepository.GetForecastProcessByCode(idSerial);
+            if (financiallaunch == null)
+            {
+                return NotFound();
+            }
+
+            _forecastProcessRepository.Delete(idSerial);
+            return Ok();
         }
     }
 }

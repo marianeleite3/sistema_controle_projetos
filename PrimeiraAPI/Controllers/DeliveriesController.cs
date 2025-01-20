@@ -12,9 +12,9 @@ namespace PrimeiraAPI.Controllers
     {
         private readonly IDeliveriesRepository _deliveriesRepository;
 
-        public DeliveriesController(IDeliveriesRepository _deliveriesRepository)
+        public DeliveriesController(IDeliveriesRepository deliveriesRepository)
         {
-            _deliveriesRepository = _deliveriesRepository ?? throw new ArgumentException(nameof(_deliveriesRepository)); ;
+            _deliveriesRepository = deliveriesRepository ?? throw new ArgumentException(nameof(deliveriesRepository)); ;
         }
 
         [HttpPost]
@@ -32,6 +32,39 @@ namespace PrimeiraAPI.Controllers
 
             return Ok();
             
+        }
+
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+
+            var deliveries = _deliveriesRepository.Get();
+            return Ok(deliveries);
+        }
+
+        [HttpGet("{deliveryId}")]
+        public IActionResult GetDeliveryByCode(int deliveryId)
+        {
+            var deliveries = _deliveriesRepository.GetDeliveryByCode(deliveryId);
+            if (deliveries == null)
+            {
+                return NotFound();
+            }
+            return Ok(deliveries);
+        }
+
+        [HttpDelete("{deliveryId}")]
+        public IActionResult Delete(int deliveryId)
+        {
+            var deliveries = _deliveriesRepository.GetDeliveryByCode(deliveryId);
+            if (deliveries == null)
+            {
+                return NotFound();
+            }
+
+            _deliveriesRepository.Delete(deliveryId);
+            return Ok();
         }
 
     }

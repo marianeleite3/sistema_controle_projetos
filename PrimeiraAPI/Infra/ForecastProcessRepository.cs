@@ -13,11 +13,27 @@ namespace PrimeiraAPI.Infra
             _context.SaveChanges();
         }
 
+        public void Delete(int idSerial)
+        {
+            var forecastprocess = _context.ForecastProcess
+                .FirstOrDefault(up => up.IdSerial == idSerial);
+            if (forecastprocess != null)
+            {
+                _context.ForecastProcess.Remove(forecastprocess);
+                _context.SaveChanges();
+            }
+        }
+
         // Obter todos os processos de previsão
         public List<ForecastProcess> Get()
         {
             return _context.ForecastProcess.ToList();
         }
 
+        public ForecastProcess GetForecastProcessByCode(int idSerial)
+        {
+            return _context.ForecastProcess
+                .FirstOrDefault(up => up.IdSerial == idSerial);
+        }
     }
 }

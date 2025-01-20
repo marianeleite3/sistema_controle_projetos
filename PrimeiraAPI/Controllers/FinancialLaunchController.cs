@@ -11,9 +11,9 @@ namespace PrimeiraAPI.Controllers
     {
         private readonly IFinancialLaunchRepository _financialLaunchRepository;
 
-        public FinancialLaunchController(IFinancialLaunchRepository _financialLaunchRepository)
+        public FinancialLaunchController(IFinancialLaunchRepository financialLaunchRepository)
         {
-            _financialLaunchRepository = _financialLaunchRepository ?? throw new ArgumentException(nameof(_financialLaunchRepository));
+            _financialLaunchRepository = financialLaunchRepository ?? throw new ArgumentException(nameof(financialLaunchRepository));
 
         }
 
@@ -32,6 +32,31 @@ namespace PrimeiraAPI.Controllers
         public IActionResult Get()
         {
             var financiallaunch = _financialLaunchRepository.Get();
+            return Ok(financiallaunch);
+        }
+
+
+        [HttpGet("{projectCode}")]
+        public IActionResult GetProjectByCode(int idSerial)
+        {
+            var project = _financialLaunchRepository.GetFinancialLaunchByCode(idSerial);
+            if (project == null)
+            {
+                return NotFound();
+            }
+            return Ok(project);
+        }
+
+        [HttpDelete("{projectCode}")]
+        public IActionResult Delete(int idSerial)
+        {
+            var project = _financialLaunchRepository.GetFinancialLaunchByCode(idSerial);
+            if (project == null)
+            {
+                return NotFound();
+            }
+
+            _financialLaunchRepository.Delete(idSerial);
             return Ok();
         }
     }

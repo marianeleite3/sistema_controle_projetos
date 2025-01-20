@@ -5,5 +5,9 @@
         void Add(ForecastProcess forecastProcess);
 
         List<ForecastProcess> Get();
+
+        ForecastProcess GetForecastProcessByCode(int idSerial);
+
+        void Delete(int idSerial);
     }
 }

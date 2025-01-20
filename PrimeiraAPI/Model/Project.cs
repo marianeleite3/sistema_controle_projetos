@@ -7,7 +7,9 @@ namespace PrimeiraAPI.Model
     public class Project
     {
         [Key]
-        public string ProjectCode { get; set; }  
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public string ProjectCode { get; private set; } = Guid.NewGuid().ToString();
+
 
         public int Idserial { get; set; }
 
@@ -35,6 +37,7 @@ namespace PrimeiraAPI.Model
         public Project(int Idserial, string Title, string DevelopmentStat, double EstimatedCost, 
             double ApprovedCost, double TotalAccomplished, double TotalAvailable, string Observations, string RequestingArea, string ExpectedStart, int DurationExpected)
         {
+
             this.Idserial = Idserial;
             this.Title = Title;
             this.DevelopmentStat = DevelopmentStat;
