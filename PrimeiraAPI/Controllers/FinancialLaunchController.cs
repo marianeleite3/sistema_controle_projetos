@@ -36,22 +36,22 @@ namespace PrimeiraAPI.Controllers
         }
 
 
-        [HttpGet("{projectCode}")]
+        [HttpGet("{idSerial}")]
         public IActionResult GetProjectByCode(int idSerial)
         {
-            var project = _financialLaunchRepository.GetFinancialLaunchByCode(idSerial);
-            if (project == null)
+            var financiallaunch = _financialLaunchRepository.GetFinancialLaunchByCode(idSerial);
+            if (financiallaunch == null)
             {
                 return NotFound();
             }
-            return Ok(project);
+            return Ok(financiallaunch);
         }
 
-        [HttpDelete("{projectCode}")]
+        [HttpDelete("{idSerial}")]
         public IActionResult Delete(int idSerial)
         {
-            var project = _financialLaunchRepository.GetFinancialLaunchByCode(idSerial);
-            if (project == null)
+            var financiallaunch = _financialLaunchRepository.GetFinancialLaunchByCode(idSerial);
+            if (financiallaunch == null)
             {
                 return NotFound();
             }
